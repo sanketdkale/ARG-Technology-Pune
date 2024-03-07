@@ -1,0 +1,96 @@
+Online Bookstore API Documentation:-
+
+This documentation outlines the endpoints available in the Online Bookstore API. The API allows users to perform various operations related to managing books, such as adding new books, retrieving book details, updating existing books, and deleting books.
+
+==============================================================
+
+Base URL:
+
+The base URL for the API is "http://127.0.0.1:5000/"
+
+==============================================================
+
+Error Handling:
+
+The API returns appropriate HTTP status codes and error messages in case of failures. Errors are returned in JSON format.
+
+==============================================================
+
+Endpoints:-
+
+1)Create a Book:
+Adds a new book to the bookstore database.
+
+- URL: '/books'
+- Method: POST
+- Request Body: (json format)
+  {
+      "title": "Sample Book",
+      "author": "ABC",
+      "isbn": "1",
+      "description": "A sample book description.",
+      "price": 100
+  }
+  
+- Response:
+  - Status Code: 201 Created
+  - Content: '{"message": "Book added successfully"}'
+
+================================================================
+
+2)Retrieve a Book:
+Retrieves details of a specific book by its (ISBN).
+
+- URL: '/books/{isbn}'
+- Method: GET
+- Response:
+  - Status Code: 200 OK
+  - Content: Details of the requested book in JSON format, e.g.:
+	{
+      "title": "Sample Book",
+      "author": "ABC",
+      "isbn": "1",
+      "description": "A sample book description.",
+      "price": 100
+	}
+  
+=================================================================
+
+3)Update a Book:-
+
+Updates the details of an existing book.
+
+- URL: '/books/{isbn}'
+- Method: PUT
+- Request Body: Fields to be updated, e.g.:
+  {
+      "title": "Updated Book Title",
+      "price": 400
+  }
+  
+- Response:
+  - Status Code: 200 OK
+  - Content: '{"message": "Book updated successfully"}'
+
+================================================================
+
+5)Delete a Book:-
+Deletes a book by its unique identifier (ISBN).
+
+- URL: '/books/{isbn}'
+- Method: DELETE
+- Response:
+  - Status Code: 200 OK
+  - Content: '{"message": "Book deleted successfully"}'
+
+================================================================
+
+6)List All Books:-
+
+Retrieves a list of all books available in the bookstore.
+
+- URL: '/books'
+- Method: GET
+- Response:
+  - Status Code: 200 OK
+  - Content: List of all books in JSON format.
